@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: currency-exchange-k8s
+spec:
+  selector:
+    matchLabels:
+      app: currency-exchange-k8s
+  replicas: 2 # Number of replicas that will be created for this deployment
+  template:
+    metadata:
+      labels:
+        app: currency-exchange-k8s
+    spec:
+      containers:
+        - name: currency-exchange-k8s
+          image: currency-exchange:2.0
+          # Image that will be used to containers in the cluster
+          imagePullPolicy: Never #IfNotPresent
+          ports:
+            - containerPort: 8080
+# The port that the container is running on in the cluster
