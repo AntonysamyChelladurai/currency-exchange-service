@@ -20,6 +20,7 @@ public class CurrencyControl {
     @Autowired
     private CurrencyExchangeRepository currentrepo;
 
+    @GetMapping("/getMSG")
     public String getMSG(){
         return "$$$$$ Welcome to Currency control $$$$$";
     }
@@ -28,6 +29,7 @@ public class CurrencyControl {
     public CurrencyExchange retrieveExchange(
             @PathVariable String from,
             @PathVariable String to) {
+        System.out.println("CurrencyExchange retrieveExchange Method ..........");
          CurrencyExchange currencyExchange = new CurrencyExchange(1000L, from, to, BigDecimal.valueOf(50),"");
          currencyExchange= currentrepo.findByFromAndTo(from,to);
             String port = env.getProperty("local.server.port");
