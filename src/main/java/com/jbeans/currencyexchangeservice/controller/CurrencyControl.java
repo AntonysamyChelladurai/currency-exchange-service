@@ -20,6 +20,9 @@ public class CurrencyControl {
     @Autowired
     private CurrencyExchangeRepository currentrepo;
 
+    public String getMSG(){
+        return "$$$$$ Welcome to Currency control $$$$$";
+    }
 
     @GetMapping("/currency-exchange/from/{from}/to/{to}")
     public CurrencyExchange retrieveExchange(
