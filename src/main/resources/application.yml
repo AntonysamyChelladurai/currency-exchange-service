@@ -14,10 +14,6 @@ spring:
     console:
       enabled: true
 
-server:
-  port: 8000
-
-
 logging:
   level:
     root: INFO
