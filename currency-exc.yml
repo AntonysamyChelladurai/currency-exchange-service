@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: currency-exc
+  name: currency-exchange
+  labels:
+    app: currency-exc
 spec:
   replicas: 2
   selector:
