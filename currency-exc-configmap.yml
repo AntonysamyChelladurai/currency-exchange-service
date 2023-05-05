@@ -1,0 +1,6 @@
+appVersion: v1
+kind: ConfigMap
+metadata:
+  name: currency-exe-configMap
+data:
+  currency-exc-url: currency-exc-service

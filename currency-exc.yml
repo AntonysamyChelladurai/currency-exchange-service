@@ -1,22 +1,35 @@
 apiVersion: apps/v1
 kind: Deployment # Kubernetes resource kind we are creating
 metadata:
-  name: currency-exc-k8s
+  name: currency-exc
 spec:
+  replicas: 2
   selector:
     matchLabels:
-      app: currency-exc-k8s
-  replicas: 2 # Number of replicas that will be created for this deployment
+      app: currency-exc
+   # Number of replicas that will be created for this deployment
   template:
     metadata:
       labels:
-        app: currency-exc-k8s
+        app: currency-exc
     spec:
       containers:
-        - name: currency-exc-k8s
+        - name: currency-exc
           image: currency-exc:latest
           # Image that will be used to containers in the cluster
           imagePullPolicy: Never #IfNotPresent
           ports:
-            - containerPort: 8080
+          - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: currency-exc-service
+spec:
+  selector:
+    app: currency-exc
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
 # The port that the container is running on in the cluster
