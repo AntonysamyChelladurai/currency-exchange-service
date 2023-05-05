@@ -30,6 +30,7 @@ metadata:
 spec:
   selector:
     app: currency-exc
+  type: LoadBalancer
   ports:
     - protocol: TCP
       port: 8080
