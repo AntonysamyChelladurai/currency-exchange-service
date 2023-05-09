@@ -36,7 +36,8 @@ public class CurrencyControl {
          currencyExchange= currentrepo.findByFromAndTo(from,to);
             String port = env.getProperty("local.server.port");
             currencyExchange.setEnvironment(port);
-        log.info("CurrencyExchange retrieveExchange Method End ..........");
+            String host = env.getProperty("HOSTNAME");
+        log.info("CurrencyExchange retrieveExchange Method End ..........: "+port+" : "+host);
         return currencyExchange;
 
     }
